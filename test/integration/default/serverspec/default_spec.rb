@@ -19,6 +19,11 @@ describe 'minecraft-basic::default' do
     it { should exist }
   end
 
+  describe file('/usr/share/minecraft/server.properties') do
+    its(:content) { should match /minecraft/ }
+    it { should exist }
+  end
+
   describe process("java") do
     its(:user) { should eq "root" }
     it { should be_running }
@@ -27,5 +32,7 @@ describe 'minecraft-basic::default' do
   describe port(25565) do
     it { should be_listening }
   end
+
+
 
 end
