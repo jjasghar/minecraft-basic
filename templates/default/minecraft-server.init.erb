@@ -1,0 +1,14 @@
+# description "start and stop the minecraft-server"
+
+start on runlevel [2345]
+stop on runlevel [^2345]
+
+console log
+chdir /usr/share/minecraft
+setuid root
+setgid root
+
+respawn
+respawn limit 20 5
+
+exec /usr/bin/java -Xms<%= node[:minecraft_basic][:min_memory] %>M -Xmx<%= node[:minecraft_basic][:max_memory] %>M -jar minecraft_server.jar nogui
