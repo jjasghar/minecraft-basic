@@ -55,4 +55,11 @@ end
 
 execute 'sudo initctl reload-configuration'
 
+template "/usr/share/minecraft/server.propertes" do
+  source "server.propertes.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+end
+
 execute 'sudo start minecraft-server'
