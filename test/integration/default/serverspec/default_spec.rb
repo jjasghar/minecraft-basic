@@ -20,7 +20,7 @@ describe 'minecraft-basic::default' do
   end
 
   describe file('/usr/share/minecraft/server.properties') do
-    its(:content) { should match /minecraft/ }
+    its(:content) { should match /Chef/ }
     it { should exist }
   end
 
