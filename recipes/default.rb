@@ -55,8 +55,8 @@ end
 
 execute 'sudo initctl reload-configuration'
 
-template "/usr/share/minecraft/server.propertes" do
-  source "server.propertes.erb"
+template "/usr/share/minecraft/server.properties" do
+  source "server.properties.erb"
   owner "root"
   group "root"
   mode "0644"
