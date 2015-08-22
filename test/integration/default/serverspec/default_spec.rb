@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'minecraft-basic::default' do
-
   # Serverspec examples can be found at
   # http://serverspec.org/resource_types.html
 
@@ -24,15 +23,12 @@ describe 'minecraft-basic::default' do
     it { should exist }
   end
 
-  describe process("java") do
-    its(:user) { should eq "root" }
+  describe process('java') do
+    its(:user) { should eq 'root' }
     it { should be_running }
   end
 
-  describe port(25565) do
+  describe port(25_565) do
     it { should be_listening }
   end
-
-
-
 end
