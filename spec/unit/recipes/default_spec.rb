@@ -16,5 +16,30 @@ describe 'minecraft-basic::default' do
     it 'converges successfully' do
       chef_run # This should not raise an error
     end
+
+    it 'should run apt-get update' do
+      pending 'I dont know how to test this :(  '
+      expect(chef_run).to run_execute('apt-get update')
+    end
+
+    it 'creates a directory /usr/share/minecraft' do
+      expect(chef_run).to create_directory('/usr/share/minecraft')
+    end
+
+    it 'creates a remote_file /usr/share/minecraft/minecraft_server.jar' do
+      expect(chef_run).to create_remote_file('/usr/share/minecraft/minecraft_server.jar')
+    end
+
+    it 'runs a bash script get the eula made' do
+      expect(chef_run).to run_bash('get the eula made')
+    end
+
+    it 'creates a template /usr/share/minecraft/eula.txt with the default action' do
+      expect(chef_run).to create_template('/usr/share/minecraft/eula.txt')
+    end
+
+    it 'creates a template /usr/share/minecraft/server.propertieswith the default action' do
+      expect(chef_run).to create_template('/usr/share/minecraft/server.properties')
+    end
   end
 end

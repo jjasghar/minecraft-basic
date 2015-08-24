@@ -33,7 +33,7 @@ describe 'minecraft-basic::default' do
       it { should exist }
     end
 
-  elsif ['debian', 'ubuntu'].include?(os[:family])
+  elsif %w(debian ubuntu).include?(os[:family])
     describe file('/etc/init/minecraft-server.conf') do
       its(:content) { should match /minecraft/ }
       it { should exist }

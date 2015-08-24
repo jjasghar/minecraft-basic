@@ -11,4 +11,4 @@ setgid root
 respawn
 respawn limit 20 5
 
-exec /usr/bin/java -Xms<%= node[:minecraft_basic][:min_memory] %>M -Xmx<%= node[:minecraft_basic][:max_memory] %>M -jar minecraft_server.jar nogui
+exec /usr/bin/java -Xms<%= node['minecraft_basic']['min_memory'] %>M -Xmx<%= node['minecraft_basic']['max_memory'] %>M -jar minecraft_server.jar nogui

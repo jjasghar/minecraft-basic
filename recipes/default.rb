@@ -33,7 +33,7 @@ directory '/usr/share/minecraft' do
 end
 
 remote_file '/usr/share/minecraft/minecraft_server.jar' do
-  source "https://s3.amazonaws.com/Minecraft.Download/versions/#{node[:minecraft_basic][:version]}/minecraft_server.#{node[:minecraft_basic][:version]}.jar"
+  source "https://s3.amazonaws.com/Minecraft.Download/versions/#{node['minecraft_basic']['version']}/minecraft_server.#{node['minecraft_basic']['version']}.jar"
   mode '0755'
 end
 
@@ -43,7 +43,7 @@ bash 'get the eula made' do
   creates 'maybe'
   code <<-EOH
     STATUS=0
-    java -Xmx#{node[:minecraft_basic][:max_memory]}M -Xms#{node[:minecraft_basic][:min_memory]}M -jar minecraft_server.jar nogui || STATUS=1
+    java -Xmx#{node['minecraft_basic']['max_memory']}M -Xms#{node['minecraft_basic']['min_memory']}M -jar minecraft_server.jar nogui || STATUS=1
     exit $STATUS
   EOH
 end
