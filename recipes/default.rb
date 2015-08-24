@@ -16,7 +16,16 @@ if 'debian' == node['platform_family']
   end
 end
 
-package 'default-jre'
+case node['platform_family']
+when 'debian'
+
+  package 'default-jre'
+
+when 'rhel', 'fedora'
+
+  package 'java-1.6.0-openjdk'
+
+end
 
 directory '/usr/share/minecraft' do
   mode '0755'
@@ -46,15 +55,6 @@ template '/usr/share/minecraft/eula.txt' do
   mode '0644'
 end
 
-template '/etc/init/minecraft-server.conf' do
-  source 'minecraft-server.init.erb'
-  owner 'root'
-  group 'root'
-  mode '0644'
-end
-
-execute 'sudo initctl reload-configuration'
-
 template '/usr/share/minecraft/server.properties' do
   source 'server.properties.erb'
   owner 'root'
@@ -62,4 +62,31 @@ template '/usr/share/minecraft/server.properties' do
   mode '0644'
 end
 
-execute 'sudo start minecraft-server'
+case node['platform_family']
+when 'debian'
+
+  template '/etc/init/minecraft-server.conf' do
+    source 'minecraft-server.init.erb'
+    owner 'root'
+    group 'root'
+    mode '0644'
+  end
+
+  execute 'sudo initctl reload-configuration'
+
+  execute 'sudo start minecraft-server'
+
+when 'rhel', 'fedora'
+
+  template '/usr/lib/systemd/system/minecraft.service' do
+    source 'minecraft-server.service.erb'
+    owner 'root'
+    group 'root'
+    mode '0644'
+  end
+
+  execute 'sudo systemctl enable minecraft'
+
+  execute 'sudo systemctl start minecraft'
+
+end

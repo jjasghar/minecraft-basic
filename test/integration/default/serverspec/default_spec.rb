@@ -13,11 +13,6 @@ describe 'minecraft-basic::default' do
     it { should exist }
   end
 
-  describe file('/etc/init/minecraft-server.conf') do
-    its(:content) { should match /minecraft/ }
-    it { should exist }
-  end
-
   describe file('/usr/share/minecraft/server.properties') do
     its(:content) { should match /Chef/ }
     it { should exist }
@@ -30,5 +25,18 @@ describe 'minecraft-basic::default' do
 
   describe port(25_565) do
     it { should be_listening }
+  end
+
+  if os[:family] == 'redhat'
+    describe file('/usr/lib/systemd/system/minecraft.service') do
+      its(:content) { should match /minecraft/ }
+      it { should exist }
+    end
+
+  elsif ['debian', 'ubuntu'].include?(os[:family])
+    describe file('/etc/init/minecraft-server.conf') do
+      its(:content) { should match /minecraft/ }
+      it { should exist }
+    end
   end
 end

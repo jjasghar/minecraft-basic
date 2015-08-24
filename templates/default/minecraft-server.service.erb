@@ -1,0 +1,13 @@
+[Unit]
+Description=Minecraft
+
+[Service]
+ExecStart=/bin/java -Xms<%= node[:minecraft_basic][:min_memory] %>M \
+                    -Xmx<%= node[:minecraft_basic][:max_memory] %>M \
+                    -jar /usr/share/minecraft/minecraft_server.jar \
+                    nogui
+
+WorkingDirectory=/usr/share/minecraft
+
+[Install]
+WantedBy=multi-user.target
