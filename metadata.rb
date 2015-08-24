@@ -5,3 +5,6 @@ license 'Apache v2'
 description 'Installs/Configures minecraft server'
 long_description 'Installs/Configures minecraft server'
 version '1.0.0'
+
+source_url 'https://github.com/jjasghar/minecraft-basic'
+issues_url 'https://github.com/jjasghar/minecraft-basic/issues'
