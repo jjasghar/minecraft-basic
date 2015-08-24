@@ -2,7 +2,7 @@
 
 This is a cookbook that installs the vanilla [Minecraft](http://minecraft.net) server.
 
-I have written a post on how to use this cookbook and deploy it to Digital Ocean [here](#).
+I have written a post on how to use this cookbook and deploy it to Digital Ocean [here](http://jjasghar.github.io/blog/2015/08/23/lets-build-a-minecraft-server-with-chef/).
 
 I took a lot of this setup from [minecraft.gamepedia.com](http://minecraft.gamepedia.com/Setting_up_a_server). There might be some things you'd like to tweak, so please take a look at the configuration options. If you would like to configure your Minecraft server, you need to either use override attributes, or edit the [attributes/default.rb](attrubutes/default.rb) and upload your cookbook to a Chef Server. A brief explanation for the different options are located in the [attributes/default.rb](attrubutes/default.rb).
 
