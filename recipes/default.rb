@@ -15,7 +15,7 @@ if 'debian' == node['platform_family']
     apt.run_action(:run)
   end
 end
-require 'pry'; binding.pry
+
 case node['platform_family']
 when 'debian'
 
