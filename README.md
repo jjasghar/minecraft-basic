@@ -6,6 +6,10 @@ I have written a post on how to use this cookbook and deploy it to Digital Ocean
 
 I took a lot of this setup from [minecraft.gamepedia.com](http://minecraft.gamepedia.com/Setting_up_a_server). There might be some things you'd like to tweak, so please take a look at the configuration options. If you would like to configure your Minecraft server, you need to either use override attributes, or edit the [attributes/default.rb](attrubutes/default.rb) and upload your cookbook to a Chef Server. A brief explanation for the different options are located in the [attributes/default.rb](attrubutes/default.rb).
 
+## Setting Operator
+Configure the server by editing the server.properties file, the format for which is explained here. Be certain to edit the file with a text editor that does not add formatting (e.g., for italics). Additional configuration may not be necessary as many servers run fine from the default values.
+Add your username to the admin.txt and/or ops.txt (newer Minecraft versions may not have an admin.txt file). Ops.txt and admin.txt determine who may execute server commands. In other words, operator ("op") privileges allow you to control certain aspects of the game (e.g., teleporting players). Op privileges may also be granted from the server GUI: type "op " and it will automatically add to the ops.txt file.
+
 ## Contributing
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
