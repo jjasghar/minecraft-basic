@@ -15,7 +15,6 @@ if 'debian' == node['platform_family']
     apt.run_action(:run)
   end
 end
-
 case node['platform_family']
 when 'debian'
 
@@ -57,6 +56,13 @@ end
 
 template '/usr/share/minecraft/server.properties' do
   source 'server.properties.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
+template '/usr/share/minecraft/ops.txt' do
+  source 'ops.txt.erb'
   owner 'root'
   group 'root'
   mode '0644'

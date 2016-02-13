@@ -1,12 +1,16 @@
-
 # The release you want to install of minecraft
-default['minecraft_basic']['version'] = '1.8.8'
+default['minecraft_basic']['version'] = '1.8.9'
 
 # The max memory for Java
 default['minecraft_basic']['max_memory'] = '1024'
 
 # The max memory for Java
 default['minecraft_basic']['min_memory'] = '512'
+
+#
+# The following section is for the ops.json, put the username in with commas between
+#
+default['minecraft_basic']['ops'] = ''
 
 #
 # The following section is for the server.properties you should look at: http://minecraft.gamepedia.com/Server.properties
