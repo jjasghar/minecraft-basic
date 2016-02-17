@@ -13,6 +13,15 @@ describe 'minecraft-basic::default' do
     it { should exist }
   end
 
+  describe file('/root/backup_minecraft.sh') do
+    its(:content) { should match /$DATE-backup-minecraft.tar.gz/ }
+    it { should exist }
+  end
+
+  describe cron do
+    it { should have_entry '02 00 * * * /root/backup_minecraft.sh' }
+  end
+
   describe file('/usr/share/minecraft/server.properties') do
     its(:content) { should match /Chef/ }
     it { should exist }
