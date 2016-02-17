@@ -19,7 +19,7 @@ describe 'minecraft-basic::default' do
   end
 
   describe cron do
-    it { should have_entry '02 00 * * * /root/backup_minecraft.sh' }
+    it { should have_entry '00 02 * * * /root/backup_minecraft.sh' }
   end
 
   describe file('/usr/share/minecraft/server.properties') do
