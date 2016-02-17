@@ -7,7 +7,13 @@ I have written a post on how to use this cookbook and deploy it to Digital Ocean
 I took a lot of this setup from [minecraft.gamepedia.com](http://minecraft.gamepedia.com/Setting_up_a_server). There might be some things you'd like to tweak, so please take a look at the configuration options. If you would like to configure your Minecraft server, you need to either use override attributes, or edit the [attributes/default.rb](attrubutes/default.rb) and upload your cookbook to a Chef Server. A brief explanation for the different options are located in the [attributes/default.rb](attrubutes/default.rb).
 
 ## Setting Operator
-Add an operator to `default['minecraft_basic']['ops'] = ''`
+Add an operator to `default['minecraft_basic']['ops']`
+
+## Setting up daily backups
+
+There is as script that gets dropped in the `/root/` directory called `backup_minecraft.sh`. It will copy out your world and then place a tarball in the `/root/$DATE-backup-minecraft.tar.gz`. You can copy that file off to any location you desire, then run `tar -xvzf $DATE-backup-minecraft.tar.gz` in your new `/usr/share/minecraft/world/` directory to **RESTORE** your backup. THIS IS DESTRUCTIVE PLEASE TAKE NOTE.
+
+I took the liberty to add a daily [cronjob](https://en.wikipedia.org/wiki/Cron) at 0200am to create this backup file, and you can change it via `default['minecraft_basic']['backup_hour']` and `default['minecraft_basic']['backup_min']`.
 
 ## Contributing
 1. Fork the repository on Github
