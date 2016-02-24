@@ -80,19 +80,17 @@ when 'debian'
 
   execute 'sudo initctl reload-configuration'
 
-  execute 'sudo start minecraft-server'
-
 when 'rhel', 'fedora'
 
-  template '/usr/lib/systemd/system/minecraft.service' do
+  template '/usr/lib/systemd/system/minecraft-server.service' do
     source 'minecraft-server.service.erb'
     owner 'root'
     group 'root'
     mode '0644'
   end
 
-  execute 'sudo systemctl enable minecraft'
+end
 
-  execute 'sudo systemctl start minecraft'
-
+service 'minecraft-server' do
+  action [:enable, :start]
 end
