@@ -26,8 +26,15 @@ describe 'minecraft-basic::default' do
       expect(chef_run).to create_directory('/usr/share/minecraft')
     end
 
-    it 'creates a remote_file /usr/share/minecraft/minecraft_server.jar' do
-      expect(chef_run).to create_remote_file('/usr/share/minecraft/minecraft_server.jar')
+    describe 'the Minecraft server JAR' do
+      it 'is retrieved and placed in service directory' do
+        expect(chef_run).to create_remote_file('/usr/share/minecraft/minecraft_server.jar')
+      end
+
+      it 'triggers a service restart when it changes' do
+        expect(chef_run.remote_file('/usr/share/minecraft/minecraft_server.jar'))
+          .to notify('service[minecraft-server]').to(:restart)
+      end
     end
 
     it 'runs a bash script get the eula made' do

@@ -1,5 +1,5 @@
 # The release you want to install of minecraft
-default['minecraft_basic']['version'] = '1.8.9'
+default['minecraft_basic']['version'] = '1.9'
 
 # The max memory for Java
 default['minecraft_basic']['max_memory'] = '1024'
