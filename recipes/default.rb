@@ -34,6 +34,7 @@ end
 remote_file '/usr/share/minecraft/minecraft_server.jar' do
   source "https://s3.amazonaws.com/Minecraft.Download/versions/#{node['minecraft_basic']['version']}/minecraft_server.#{node['minecraft_basic']['version']}.jar"
   mode '0755'
+  notifies :restart, 'service[minecraft-server]'
 end
 
 bash 'get the eula made' do
