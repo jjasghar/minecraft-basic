@@ -1,6 +1,6 @@
 # Change Log
 
-## [v1.2.0](https://github.com/jjasghar/minecraft-basic/tree/v1.2.0)
+## [v1.2.0](https://github.com/jjasghar/minecraft-basic/tree/v1.2.0) (2016-03-01)
 
 [Full Changelog](https://github.com/jjasghar/minecraft-basic/compare/v1.1.0...HEAD)
 
