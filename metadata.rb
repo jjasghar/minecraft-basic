@@ -11,3 +11,6 @@ supports 'centos', ">= 7.0"
 
 source_url 'https://github.com/jjasghar/minecraft-basic'
 issues_url 'https://github.com/jjasghar/minecraft-basic/issues'
+
+depends 'apt'
+depends 'cron'
