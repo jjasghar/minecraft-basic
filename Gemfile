@@ -14,4 +14,5 @@ group :development do
   gem "foodcritic"
 end
 
-gem 'kitchen-openstack', path: '/Users/jasghar/repo/kitchen-openstack'
+gem 'kitchen-openstack'
+gem 'kitchen-digitalocean'
