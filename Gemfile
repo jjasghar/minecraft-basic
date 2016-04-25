@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
 group :development do
-  gem 'chefspec'
+  gem "chefspec"
   gem "test-kitchen"
-  gem 'kitchen-pester'
-  gem 'kitchen-vagrant'
-  gem 'vagrant-wrapper', '>= 2.0'
-  gem 'winrm-transport'
+  gem "kitchen-pester"
+  gem "kitchen-vagrant"
+  gem "vagrant-wrapper", ">= 2.0"
+  gem "winrm-transport"
   gem "berkshelf"
   gem "stove"
   gem "rubocop"
@@ -14,5 +14,5 @@ group :development do
   gem "foodcritic"
 end
 
-gem 'kitchen-openstack'
-gem 'kitchen-digitalocean'
+gem "kitchen-openstack"
+gem "kitchen-digitalocean"
