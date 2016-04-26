@@ -22,7 +22,7 @@ when "debian"
 
 when "rhel", "fedora"
 
-  package 'java-1.6.0-openjdk'
+  package "java-1.6.0-openjdk"
 
 end
 
@@ -83,11 +83,11 @@ when "debian"
 
 when "rhel", "fedora"
 
-  template '/usr/lib/systemd/system/minecraft-server.service' do
-    source 'minecraft-server.service.erb'
-    owner 'root'
-    group 'root'
-    mode '0644'
+  template "/usr/lib/systemd/system/minecraft-server.service" do
+    source "minecraft-server.service.erb"
+    owner "root"
+    group "root"
+    mode "0644"
   end
 
 end
