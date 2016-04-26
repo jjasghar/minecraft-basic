@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DATE=`date +%F`
+
+# create the working directory
+mkdir /tmp/world-$DATE/
+
+#copy in the world to the directory
+cp -r /usr/share/minecraft/world/* /tmp/world-$DATE/
+
+# tar up the direcory
+tar czf $DATE-backup-minecraft.tar.gz -C /tmp/world-$DATE/ .
+
+# remove the working directory
+rm -rf /tmp/world-$DATE/

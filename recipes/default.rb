@@ -69,6 +69,19 @@ template '/usr/share/minecraft/ops.txt' do
   mode '0644'
 end
 
+template '/root/backup_minecraft.sh' do
+  source 'backup_minecraft.sh.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
+cron "backup_minecraft" do
+  hour "#{node['minecraft_basic']['backup_hour']}"
+  minute "#{node['minecraft_basic']['backup_min']}"
+  command "/root/backup_minecraft"
+end
+
 case node['platform_family']
 when 'debian'
 
