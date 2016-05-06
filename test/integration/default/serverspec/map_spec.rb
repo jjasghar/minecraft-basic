@@ -1,6 +1,6 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe "minecraft-basic::map" do
+describe 'minecraft-basic::map' do
   # Serverspec examples can be found at
   # http://serverspec.org/resource_types.html
 

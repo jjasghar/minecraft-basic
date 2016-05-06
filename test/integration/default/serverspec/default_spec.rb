@@ -1,25 +1,25 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe "minecraft-basic::default" do
+describe 'minecraft-basic::default' do
   # Serverspec examples can be found at
   # http://serverspec.org/resource_types.html
 
-  describe file("/usr/share/minecraft/minecraft_server.jar") do
+  describe file('/usr/share/minecraft/minecraft_server.jar') do
     it { should exist }
   end
 
-  describe file("/usr/share/minecraft/eula.txt") do
+  describe file('/usr/share/minecraft/eula.txt') do
     its(:content) { should match /true/ } # rubocop:disable all
     it { should exist }
   end
 
-  describe file("/usr/share/minecraft/server.properties") do
+  describe file('/usr/share/minecraft/server.properties') do
     its(:content) { should match /Chef/ } # rubocop:disable all
     it { should exist }
   end
 
-  describe process("java") do
-    its(:user) { should eq "root" }
+  describe process('java') do
+    its(:user) { should eq 'root' }
     it { should be_running }
   end
 
@@ -27,7 +27,7 @@ describe "minecraft-basic::default" do
     it { should be_listening }
   end
 
-  describe service("minecraft-server") do
+  describe service('minecraft-server') do
     it { should be_enabled }
     it { should be_running }
   end
