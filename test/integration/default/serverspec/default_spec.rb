@@ -9,12 +9,12 @@ describe 'minecraft-basic::default' do
   end
 
   describe file('/usr/share/minecraft/eula.txt') do
-    its(:content) { should match /true/ }
+    its(:content) { should match /true/ } # rubocop:disable all
     it { should exist }
   end
 
   describe file('/usr/share/minecraft/server.properties') do
-    its(:content) { should match /Chef/ }
+    its(:content) { should match /Chef/ } # rubocop:disable all
     it { should exist }
   end
 

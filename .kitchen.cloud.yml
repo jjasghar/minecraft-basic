@@ -1,0 +1,35 @@
+---
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: latest
+
+platforms:
+- name: centos-7-0-x64
+  driver:
+    name: digitalocean
+
+- name: debian-8-0-x64
+  driver:
+    name: digitalocean
+  run_list:
+  - recipe[apt]
+
+- name: ubuntu-14-04-x64
+  driver:
+    name: digitalocean
+    driver_config:
+    size: 8gb
+  run_list:
+  - recipe[apt]
+
+- name: ubuntu-15-10-x64
+  driver:
+    name: digitalocean
+  run_list:
+  - recipe[apt]
+
+
+suites:
+  - name: default
+    run_list:
+      - recipe[minecraft-basic::default]

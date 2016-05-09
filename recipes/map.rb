@@ -17,10 +17,8 @@ if 'debian' == node['platform_family']
 
   template '/etc/nginx/sites-enabled/map.conf' do
     source 'map_site.conf.erb'
-    variables({
-      fqdn: node['fqdn'],
-      web_map_dir: '/srv/minecraft/map',
-    })
+    variables(fqdn: node['fqdn'],
+              web_map_dir: '/srv/minecraft/map')
     notifies :restart, 'service[nginx]'
   end
 
@@ -40,11 +38,9 @@ if 'debian' == node['platform_family']
 
   template '/srv/minecraft/mapcrafter.conf' do
     source 'mapcrafter.conf.erb'
-    variables({
-      world_name: 'Chef Minecraft',
-      world_path: '/usr/share/minecraft/world',
-      render_path: '/srv/minecraft/map',
-    })
+    variables(world_name: 'Chef Minecraft',
+              world_path: '/usr/share/minecraft/world',
+              render_path: '/srv/minecraft/map')
   end
 
   cron_d 'render_minecraft_world_map' do

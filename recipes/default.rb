@@ -96,4 +96,4 @@ service 'minecraft-server' do
   action [:enable, :start]
 end
 
-include_recipe "minecraft-basic::map"
+include_recipe 'minecraft-basic::map'

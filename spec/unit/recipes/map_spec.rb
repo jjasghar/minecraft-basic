@@ -43,7 +43,7 @@ describe 'minecraft-basic::map' do
     describe 'sets up the map renderer' do
       it 'adds the mapcrafter apt repo to sources' do
         expect(chef_run).to add_apt_repository('mapcrafter')
-        .with(uri: 'http://packages.mapcrafter.org/ubuntu')
+          .with(uri: 'http://packages.mapcrafter.org/ubuntu')
       end
 
       it 'ensures mapcrafter is installed' do
@@ -58,7 +58,6 @@ describe 'minecraft-basic::map' do
         expect(chef_run).to create_cron_d('render_minecraft_world_map')
       end
     end
-
   end
 
   context 'When all attributes are default, on a RedHat node' do
